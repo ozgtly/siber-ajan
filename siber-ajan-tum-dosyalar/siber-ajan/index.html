@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Siber Ajan Akademisi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="cv"></canvas>
+<header>
+  <div class="logo">🛡️ SİBER AJAN AKADEMİSİ</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <div class="stat">Puan: <b id="score">0</b></div>
+    <div class="stat">Rütbe: <b id="rank">Çaylak</b></div>
+  </div>
+</header>
+<main>
+  <div class="card">
+    <div class="mut">İLERLEME</div>
+    <div class="steps"><div class="step on" id="s1"></div><div class="step" id="s2"></div><div class="step" id="s3"></div></div>
+  </div>
+
+  <section id="start" class="card">
+    <h1>&gt; Göreve Hoş Geldin_</h1>
+    <p>Siber dünyada güvende kalmanın yollarını öğren. Üç görevi sırayla tamamla, <b>Çaylak</b>tan <b>Ajan</b> rütbesine yüksel ve resmi sertifikanı kazan!</p>
+    <input type="text" id="name" placeholder="Ajan adını yaz..." maxlength="24">
+    <button id="go">Göreve Başla ▶</button>
+  </section>
+
+  <section id="m1" class="card hide">
+    <h2>Görev 1: Kırılmaz Şifre</h2>
+    <p class="mut">Güçlü bir şifre oluştur. Yazdıkça gücü ölçülür.</p>
+    <input type="password" id="pw" placeholder="Şifreni yaz..." autocomplete="off">
+    <label class="mut"><input type="checkbox" id="show"> Şifreyi göster</label>
+    <div class="bar"><i id="pbar"></i></div>
+    <div>Güç: <b id="plabel">-</b></div>
+    <ul class="chk" id="chk">
+      <li data-r="len">En az 8 karakter</li>
+      <li data-r="up">En az bir büyük harf (A-Z)</li>
+      <li data-r="lo">En az bir küçük harf (a-z)</li>
+      <li data-r="num">En az bir rakam (0-9)</li>
+      <li data-r="sym">En az bir özel karakter (!@#$%...)</li>
+    </ul>
+    <div>Tahmini kırılma süresi: <span class="crack" id="crack">Anında</span></div>
+    <button id="done1" disabled>Görevi Tamamla (+100)</button>
+  </section>
+
+  <section id="m2" class="card hide">
+    <h2>Görev 2: E-posta Avı</h2>
+    <p class="mut">Mail <b id="mn">1</b>/3 — Bu e-posta güvenli mi, tuzak mı? Gönderici, yazım ve bağlantıyı incele.</p>
+    <div class="mail" id="mail"></div>
+    <div class="btns" id="mbtns">
+      <button id="safe">✅ Güvenli</button>
+      <button id="trap" class="bad">🎣 Tuzak</button>
+    </div>
+    <div id="mfb"></div>
+    <button id="mnext" class="hide">Sonraki ▶</button>
+  </section>
+
+  <section id="m3" class="card hide">
+    <h2>Görev 3: Sezar Şifre Çözücü</h2>
+    <p class="mut">Ajan mesajındaki her harf alfabede 1 ileri kaydırılmış. Her harfi bir geri alarak çöz!</p>
+    <div class="cipher" id="cipher"></div>
+    <div class="ruler" id="ruler"></div>
+    <p class="mut">Örnek: T → S (üstteki harf gerçek, alttaki şifreli harftir).</p>
+    <input type="text" id="ans" placeholder="Çözülmüş mesajı yaz..." autocomplete="off">
+    <button id="chk3">Çöz (+150)</button>
+    <div id="m3fb"></div>
+  </section>
+
+  <section id="end" class="card hide">
+    <div class="cert">
+      <div class="seal">🏅</div>
+      <h2>RESMİ SİBER AJAN SERTİFİKASI</h2>
+      <p class="mut">Bu belge, aşağıda adı yazılı kişinin tüm siber güvenlik görevlerini başarıyla tamamladığını onaylar.</p>
+      <div class="nm" id="cname"></div>
+      <p>Rütbe: <b style="color:var(--g)">AJAN</b> &nbsp;|&nbsp; Toplam Puan: <b style="color:var(--y)" id="cscore"></b></p>
+      <p class="mut" id="cdate"></p>
+    </div>
+    <button onclick="location.reload()">↻ Tekrar Oyna</button>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
